@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Basic Python | Chanseong Park</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Basic Python" />
+<meta name="author" content="Chanseong Park" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="python 기초 코드 실습" />
+<meta property="og:description" content="python 기초 코드 실습" />
+<link rel="canonical" href="https://chanseongparkk.github.io/cspBlog/jupyter/python/2022/03/04/Python_basic.html" />
+<meta property="og:url" content="https://chanseongparkk.github.io/cspBlog/jupyter/python/2022/03/04/Python_basic.html" />
+<meta property="og:site_name" content="Chanseong Park" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-04T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Basic Python" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chanseong Park"},"dateModified":"2022-03-04T00:00:00-06:00","datePublished":"2022-03-04T00:00:00-06:00","description":"python 기초 코드 실습","headline":"Basic Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://chanseongparkk.github.io/cspBlog/jupyter/python/2022/03/04/Python_basic.html"},"url":"https://chanseongparkk.github.io/cspBlog/jupyter/python/2022/03/04/Python_basic.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/cspBlog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://chanseongparkk.github.io/cspBlog/feed.xml" title="Chanseong Park" /><link rel="shortcut icon" type="image/x-icon" href="/cspBlog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/cspBlog/">Chanseong Park</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/cspBlog/about/">About Me</a><a class="page-link" href="/cspBlog/search/">Search</a><a class="page-link" href="/cspBlog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Basic Python</h1><p class="page-description">python 기초 코드 실습</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-04T00:00:00-06:00" itemprop="datePublished">
+        Mar 4, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Chanseong Park</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/cspBlog/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/cspBlog/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/chanseongparkk/cspBlog/tree/master/_notebooks/2022-03-04-Python_basic.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/cspBlog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/chanseongparkk/cspBlog/master?filepath=_notebooks%2F2022-03-04-Python_basic.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/cspBlog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/chanseongparkk/cspBlog/blob/master/_notebooks/2022-03-04-Python_basic.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/cspBlog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fchanseongparkk%2FcspBlog%2Fblob%2Fmaster%2F_notebooks%2F2022-03-04-Python_basic.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/cspBlog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h5"><a href="#대,소문자로-변경">대,소문자로 변경 </a></li>
+<li class="toc-entry toc-h5"><a href="#모듈">모듈 </a>
+<ul>
+<li class="toc-entry toc-h6"><a href="#some_module">some_module </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h5"><a href="#리스트와-튜플">리스트와 튜플 </a></li>
+<li class="toc-entry toc-h5"><a href="#STRING-Type">STRING Type </a></li>
+<li class="toc-entry toc-h5"><a href="#None">None </a></li>
+<li class="toc-entry toc-h5"><a href="#break,-countinue,-pass">break, countinue, pass </a></li>
+<li class="toc-entry toc-h5"><a href="#파이썬-삼항연산자">파이썬 삼항연산자 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-04-Python_basic.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># a에 4를 붙인다.</span>
+<span class="n">b</span>     <span class="c1">#b를 a에 저장 후 a값이 변하면 b의 값도 따라 변한다</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="대,소문자로-변경">
+<a class="anchor" href="#%EB%8C%80,%EC%86%8C%EB%AC%B8%EC%9E%90%EB%A1%9C-%EB%B3%80%EA%B2%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>대,소문자로 변경<a class="anchor-link" href="#%EB%8C%80,%EC%86%8C%EB%AC%B8%EC%9E%90%EB%A1%9C-%EB%B3%80%EA%B2%BD"> </a>
+</h5>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">"foo"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span> <span class="c1">#앞문자만 대문자 </span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># 대문자로 변경</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1"># 소문자로 변경</span>
+<span class="n">a</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="모듈">
+<a class="anchor" href="#%EB%AA%A8%EB%93%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>모듈<a class="anchor-link" href="#%EB%AA%A8%EB%93%88"> </a>
+</h5>
+<ul>
+<li>개발자들은 일반적으로 결과물을 만들때 모듈 단위로 저장한다.</li>
+<li>모듈을 불러오면 각 모듈에서 저장한 기능을 파이썬에서 사용 가능하다.</li>
+<li>ipynb 파일을 py 파일로 저장하면 모듈로 저장이 가능하다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h6 id="some_module">
+<a class="anchor" href="#some_module" aria-hidden="true"><span class="octicon octicon-link"></span></a>some_module<a class="anchor-link" href="#some_module"> </a>
+</h6>
+<p>PI = 3.14159</p>
+<p>def f(x): 
+    return x+2</p>
+<p>def g(a,b):
+    return a+b</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">some_module</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">some_module</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_module</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>9
+3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">some_module</span><span class="o">.</span><span class="n">PI</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3.14159</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">some_module</span> <span class="kn">import</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">PI</span>
+<span class="n">f</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">PI</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">some_module</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="리스트와-튜플">
+<a class="anchor" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%ED%8A%9C%ED%94%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>리스트와 튜플<a class="anchor-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%99%80-%ED%8A%9C%ED%94%8C"> </a>
+</h5>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"foo"</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span> <span class="c1">#리스트는 여러 type를 저장할 수 있다. 또한 원소를 변경 및 삽입할 수 있다.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="s2">"hello"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_tuple</span><span class="p">)</span>
+<span class="n">a_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"hello"</span> <span class="c1">#튜플은 원소의 삭제, 변경, 삽입이 불가능하다</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="STRING-Type">
+<a class="anchor" href="#STRING-Type" aria-hidden="true"><span class="octicon octicon-link"></span></a>STRING Type<a class="anchor-link" href="#STRING-Type"> </a>
+</h5>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">"This is the first half"</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s2">"and this is the second half"</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">hello world</span>
+<span class="s2">i'm Chanseong Park</span>
+<span class="s2">"""</span>
+
+<span class="n">c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{0:.2f}</span><span class="s2"> </span><span class="si">{1:s}</span><span class="s2"> are worth US$</span><span class="si">{2:d}</span><span class="s2">"</span>
+<span class="n">template</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1234.56</span><span class="p">,</span><span class="s2">"won"</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="s2">"yen"</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="None">
+<a class="anchor" href="#None" aria-hidden="true"><span class="octicon octicon-link"></span></a>None<a class="anchor-link" href="#None"> </a>
+</h5>
+<ul>
+<li>R의 NULL 개념과 유사하다.</li>
+<li>빈 공간을 생성하는 것이다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="ow">is</span> <span class="kc">None</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add_and_maybe_multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    
+    <span class="k">if</span><span class="p">(</span><span class="n">c</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="n">c</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">add_and_maybe_multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_and_maybe_multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="break,-countinue,-pass">
+<a class="anchor" href="#break,-countinue,-pass" aria-hidden="true"><span class="octicon octicon-link"></span></a>break, countinue, pass<a class="anchor-link" href="#break,-countinue,-pass"> </a>
+</h5>
+<ul>
+<li>반복문에 사용하는 제어문</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">total</span><span class="o">&gt;</span><span class="mi">500</span><span class="p">):</span> <span class="c1">#total이 500이 넘으면 while문 탈출</span>
+        <span class="k">break</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>  <span class="c1">#total은 while문이 한 번 돌때마다 x와 더해진 값으로 저장 </span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">//</span><span class="mi">2</span>  <span class="c1">#x는 while문이 힌 번 돌때마다 2로 나눈 몫으로 저장</span>
+
+<span class="n">total</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">256</span><span class="o">+</span><span class="mi">128</span><span class="o">+</span><span class="mi">64</span><span class="o">+</span><span class="mi">32</span><span class="o">+</span><span class="mi">16</span><span class="o">+</span><span class="mi">8</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> <span class="c1">#i가 None이면 그냥 넘어간다. 이렇게 하지 않으면 None값의 연산은 불가능하기에 에러가 뜬다.</span>
+        <span class="k">continue</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tot</span> <span class="o">+=</span> <span class="n">i</span>
+    
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>34</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"x를 입력하세요:"</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"negative"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>    <span class="c1">#x가 0이면 아무것도 나오지 않는다.</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"positive"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x를 입력하세요:
+0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="파이썬-삼항연산자">
+<a class="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>파이썬 삼항연산자<a class="anchor-link" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90"> </a>
+</h5>
+<ul>
+<li>[true_value] if [condition] else [false_value]</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aa</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">bb</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">aa</span> <span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="n">aa</span> <span class="c1"># aa가 0이면 bb는 1이고 aa가 0이 아니라면 bb는 aa값을 갖는다</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aa</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="n">bb</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">aa</span> <span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="n">aa</span> <span class="c1"># aa가 0이면 bb는 1이고 aa가 0이 아니라면 bb는 aa값을 갖는다</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>60
+60
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aa</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">bb</span> <span class="o">=</span> <span class="mi">15</span> <span class="k">if</span> <span class="n">aa</span> <span class="o">&gt;</span> <span class="mi">150</span> <span class="k">else</span> <span class="mi">20</span> <span class="c1"># aa가 150 이상이면 bb는 15이고 aa가 150이상이 아니라면 bb는 20의 값을 갖는다</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>100
+20
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="chanseongparkk/cspBlog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/cspBlog/jupyter/python/2022/03/04/Python_basic.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/cspBlog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/cspBlog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/cspBlog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/cspBlog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/cspBlog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
